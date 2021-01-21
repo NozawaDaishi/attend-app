@@ -1,0 +1,28 @@
+<% @page_title = "詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "編集", [:edit, @user] %></div>
+
+<table class="attr">
+    <tr>
+        <th width="150">クラス</th>
+        <td><%= @user.klass %></td>
+    </tr>
+    <tr>
+        <th>学籍番号</th>
+        <td><%= @user.student_number %></td>
+    </tr>
+    <tr>
+        <th>姓</th>
+        <td><%= @user.last_name %></td>
+    </tr>
+    <tr>
+        <th>名</th>
+        <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+        <th>役職</th>
+        <td><%= @user.role == 1 ? "生徒" : "教師" %></td>
+    </tr>
+</table>

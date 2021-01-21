@@ -1,0 +1,27 @@
+<table class="attr">
+    <tr>
+        <th><%= form.label :klass, "クラス" %></th>
+        <td><%= form.text_field :klass, size: 8 %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :student_number, "学籍番号" %></th>
+        <td><%= form.text_field :student_number %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :last_name, "姓" %></th>
+        <td><%= form.text_field :last_name %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :first_name, "名" %></th>
+        <td><%= form.text_field :first_name %></td>
+    </tr>
+    <tr>
+        <th>役職</th>
+        <td>
+            <%= form.radio_button :role, 1 %>
+            <%= form.label :role_1, "生徒" %>
+            <%= form.radio_button :role, 2 %>
+            <%= form.label :role_2, "教師" %>
+        </td>
+    </tr>
+</table>
