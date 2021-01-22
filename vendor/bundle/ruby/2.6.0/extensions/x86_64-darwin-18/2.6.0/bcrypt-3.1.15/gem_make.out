@@ -1,0 +1,19 @@
+current directory: /Users/kaito.chika/Desktop/attend-app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.15/ext/mri
+/Users/kaito.chika/.rbenv/versions/2.6.6/bin/ruby -I /Users/kaito.chika/.rbenv/versions/2.6.6/lib/ruby/2.6.0 -r ./siteconf20210122-45095-1xqsb1c.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kaito.chika/Desktop/attend-app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.15/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/kaito.chika/Desktop/attend-app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.15/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+clang  -D__SKIP_GNU -I/Users/kaito.chika/.rbenv/versions/2.6.6/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/kaito.chika/Desktop/attend-app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.15/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20210122-45095-1iw5z2e
