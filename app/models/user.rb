@@ -1,7 +1,13 @@
 class User < ApplicationRecord
     has_secure_password
+    
+    validates :uid, presence: true, uniqueness: true
+    validates :klass, presence: true
+    validates :last_name, presence: true, length: { maximum: 20 }
+    validates :first_name, presence: true, length: { maximum: 20 }
 
-    # フルネームで検索した時にヒットしない
+
+    # 検索
     class << self
         def search(query)
           rel = order("uid")

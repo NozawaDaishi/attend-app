@@ -1,27 +1,29 @@
+<%= render "shared/errors", obj: @user %>
+
 <table class="attr">
     <tr>
-        <th><%= form.label :klass, "クラス" %></th>
+        <th><%= form.label :klass %></th>
         <td><%= form.text_field :klass, size: 8 %></td>
     </tr>
     <tr>
-        <th><%= form.label :student_number, "学籍番号" %></th>
+        <th><%= form.label :student_number %></th>
         <td><%= form.text_field :student_number %></td>
     </tr>
     <tr>
-        <th><%= form.label :last_name, "姓" %></th>
+        <th><%= form.label :last_name %></th>
         <td><%= form.text_field :last_name %></td>
     </tr>
     <tr>
-        <th><%= form.label :first_name, "名" %></th>
+        <th><%= form.label :first_name %></th>
         <td><%= form.text_field :first_name %></td>
     </tr>
     <tr>
-        <th>役職</th>
+        <th><%= User.human_attribute_name(:role) %></th>
         <td>
             <%= form.radio_button :role, 1 %>
-            <%= form.label :role_1, "生徒" %>
+            <%= form.label :role_1 %>
             <%= form.radio_button :role, 2 %>
-            <%= form.label :role_2, "教師" %>
+            <%= form.label :role_2 %>
         </td>
     </tr>
 </table>
