@@ -10,13 +10,21 @@
   </head>
 
   <body>
-    <main>
-    <% if flash.notice %>
-        <p class="notice"><%= flash.notice %></p>
-      <% end %>
+    <div id="container">
+      <header>
+        <%= render "shared/header" %>
+      </header>
+      <main>
+      <% if flash.notice %>
+          <p class="notice"><%= flash.notice %></p>
+        <% end %>
 
-      <%= yield %>
-    </main>
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render "shared/footer" %>
+      </footer>
+    </div>
   </body>
 </html>
 
