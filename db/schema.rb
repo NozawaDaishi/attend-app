@@ -20,35 +20,6 @@ ActiveRecord::Schema.define(version: 2021_01_21_015928) do
     t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
-  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "name", null: false
-    t.string "email"
-    t.date "birthday"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "klass", null: false
-    t.string "name", null: false
-    t.string "email"
-    t.date "birthday"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "name", null: false
-    t.string "email"
-    t.boolean "administrator", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "uid", null: false
     t.string "last_name", null: false
