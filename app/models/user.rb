@@ -17,4 +17,8 @@ class User < ApplicationRecord
           end
         end
     end
+
+    def teacher?
+      self.role == 2
+    end
 end

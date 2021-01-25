@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   end
 
   resources :session, only: [:create, :destroy]
+
+  get '/', to: 'attends#index'
 end
