@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :klass, presence: true
     validates :last_name, presence: true, length: { maximum: 20 }
     validates :first_name, presence: true, length: { maximum: 20 }
+    validates :password, presence: true, length: { minimum: 6 }
 
 
     # 検索
@@ -20,5 +21,12 @@ class User < ApplicationRecord
 
     def teacher?
       self.role == 2
+    end
+
+    # 渡された文字列のハッシュ値を返す
+    def User.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
     end
 end

@@ -1,14 +1,18 @@
 <h1>Attend-App</h1>
-
-<%= render "shared/login_form" unless current_user %>
-
-<% if current_user %>
-    <ul class="account-menu">
-        <%= current_user.name + "さん" %>
-        <%= menu_link_to "ログアウト", :session,
-            method: :delete, data: { confirm: "ログアウトしますか？" } %>
+<nav>
+    <ul>
+        <% if logged_in? %>
+            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", '#' %></li>
+            <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+            </li>
+        <% else %>
+            <li><%= link_to "Log in", login_path %></li>
+        <% end %>
     </ul>
-<% end %>
+</nav>
 
 <nav class="menubar">
     <ul>

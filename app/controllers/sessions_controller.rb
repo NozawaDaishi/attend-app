@@ -1,16 +1,20 @@
 class SessionsController < ApplicationController
+    def new
+    end
+
     def create
-        user = User.find_by(student_number: params[:student_number])
-        if user&.authenticate(params[:password])
-            session[:user_id] = user.id
+        user = User.find_by(student_number: params[:session][:student_number].downcase)
+        if user && user.authenticate(params[:session][:password])
+            log_in user
+            redirect_to user
         else
-            flash.alert = "学籍番号とパスワードが一致しません"
+            flash.now[:danger] = 'Invalid student_number/password combination'
+            render 'new'
         end
-        redirect_to :root
     end
 
     def destroy
-        session.delete(:user_id)
-        redirect_to :root
+        log_out
+        redirect_to root_url
     end
 end
