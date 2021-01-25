@@ -1,5 +1,7 @@
 class AttendsController < ApplicationController
+    before_action :required_logged_in
+
     def index
-        @current_user = User.first
+        
     end
 end

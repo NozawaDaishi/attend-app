@@ -31,7 +31,7 @@ User.create!(
     last_name: '丸山',
     first_name: '太郎',
     klass: 'R4A1',
-    student_number: null,
+    number: nil,
     password: 'password',
     role: 2
 )
