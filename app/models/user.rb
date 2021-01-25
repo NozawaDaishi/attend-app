@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :attends
     
     validates :uid, presence: true, uniqueness: true
     validates :klass, presence: true
