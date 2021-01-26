@@ -23,7 +23,7 @@
                 <tr>
                     <td><%= user.klass %></td>
                     <td><%= user.number %></td>
-                    <td><%= link_to user.last_name + user.first_name, user %></td>
+                    <td><%= link_to user.last_name + " " + user.first_name, user %></td>
                     <td>
                         <%= link_to "編集", [:edit, user] %> |
                         <%= link_to "削除", user, method: :delete,
