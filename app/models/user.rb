@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :attends
+
+    scope :myklass, -> (klass) { where(klass: klass).where(role: 1) }
     
     validates :uid, presence: true, uniqueness: true
     validates :klass, presence: true

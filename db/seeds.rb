@@ -49,3 +49,4 @@ User.create!(
 
 user = User.first
 user.attends.create!(date: Time.now)
+user.attends.create!(date: Time.now.tomorrow)
