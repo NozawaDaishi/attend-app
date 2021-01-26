@@ -16,8 +16,8 @@
       </header>
       <main>
       <% if flash.notice %>
-          <p class="notice"><%= flash.notice %></p>
-        <% end %>
+          <p class="alert alert-success"><%= flash.notice %></p>
+      <% end %>
 
         <%= yield %>
       </main>

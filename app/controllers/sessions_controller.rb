@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         user = User.find_by(number: params[:session][:number].downcase)
         if user && user.authenticate(params[:session][:password])
             log_in user
-            redirect_to root_url
+            redirect_to root_url, notice: 'ログインしました。'
         else
             flash.now[:danger] = 'Invalid number/password combination'
             render 'new'
