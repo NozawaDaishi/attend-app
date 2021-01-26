@@ -1,21 +1,15 @@
 <h1>Attend-App</h1>
-<nav>
-    <ul>
-        <% if logged_in? %>
-            <li><%= link_to "Profile", current_user %></li>
-            <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-            </li>
-        <% else %>
-            <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-    </ul>
-</nav>
 
 <nav class="menubar">
     <ul>
         <%= menu_link_to "TOP", :root %>
-        <%= menu_link_to "ユーザー名簿", :users %>
+        <%= menu_link_to "クラス名簿", :users %>
         <%= menu_link_to "管理ページ", "#"%>
+        <% if logged_in? %>
+            <%= menu_link_to "Profile", current_user %>
+                <%= menu_link_to "Log out", logout_path, method: :delete %>
+        <% else %>
+            <%= menu_link_to "Log in", login_path %>
+        <% end %>
     </ul>
 </nav>
