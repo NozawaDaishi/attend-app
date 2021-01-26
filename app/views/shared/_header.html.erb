@@ -1,17 +1,16 @@
-<h1>Attend-App</h1>
- 
-<nav class="menubar">
-    <ul>
-        <%= menu_link_to "TOP", :root %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Attend App</h5>
+    <nav class="navbar navbar-expand-lg my-0">
+        <%= link_to "ホーム", :root , {class: "p-2 text-dark"} %>
         <% if current_user&.teacher?  %>
-            <%= menu_link_to "クラス名簿", :users %>
-            <%= menu_link_to "管理ページ", "#" %>
+            <%= link_to "クラス名簿", :users , {class: "p-2 text-dark"} %>
+            <%= link_to "管理ページ", "#" , {class: "p-2 text-dark"} %>
         <% end %>
         <% if logged_in? %>
-            <%= menu_link_to "Profile", current_user %>
-                <%= menu_link_to "Log out", logout_path, method: :delete %>
+            <%= link_to "マイページ", current_user , {class: "p-2 text-dark"} %>
+            <%= link_to "ログアウト", logout_path, method: :delete , class: "btn btn-outline-primary btn-sm mx-1" %>
         <% else %>
-            <%= menu_link_to "Log in", login_path %>
+            <%= link_to "ログイン", login_path , class: "btn btn-outline-primary btn-sm mx-1" %>
         <% end %>
-    </ul>
-</nav>
+    </nav>
+</div>
