@@ -2,18 +2,17 @@
 
 <h1><%= @page_title %></h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :number %>
-      <%= f.text_field :number, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+<div class="card">
+    <article class="card-body">
+        <h4 class="card-title text-center mb-4 mt-1">ログイン</h4>
+        <%= form_for(:session, url: login_path) do |f| %>
+        <div class="form-group">
+            <%= f.label :number, "番号"%>
+            <%= f.text_field :number, class: 'form-control' %>
+        </div>
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.submit "ログイン", class: "btn btn-lg btn-primary btn-block" %>
     <% end %>
-
   </div>
 </div>
