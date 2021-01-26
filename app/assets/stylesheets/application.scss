@@ -13,9 +13,3 @@
  *= require_tree .
  *= require_self
  */
- 
-  nav.menubar ul li:not(:last-child):after {
-    color: #ccc;
-    content: " | ";
-    margin: 0 2px;
-  }
