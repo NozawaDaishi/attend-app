@@ -14,9 +14,12 @@
         <% end %>
     <% end %>
 
-    <h2>他のクラスの出席状況をみる<h2>
+    <h2>他のクラスの出席状況をみる</h2>
 
-    <%= link_to '' %>
+    <% User.klass_list.each do |klass| %>
+        <%= link_to klass, "/class/#{klass}" %>
+        <br>
+    <% end %>
 <% else %>
 
     <h1>生徒用ページ</h1>
