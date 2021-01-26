@@ -23,7 +23,7 @@ User.create!(
     )
 end
 
-## R4A1
+## R4A2
 10.times do |i|
     User.create!(
         uid: 'uuuid' + (i + 1).to_s,

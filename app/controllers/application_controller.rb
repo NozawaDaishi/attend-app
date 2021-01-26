@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
 
-    def required_logged_in
+    def login_required
         if logged_in?
             true
         else
