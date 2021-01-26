@@ -4,13 +4,26 @@
 
     <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
 
+    <table>
+        <tr>
+        <th  class="text-center" width="100">出席</th>
+        <td class="text-center">氏名</td>
+        </tr>
     <% @students.each do |user| %>
         <% if user.attends.that_day?(@today) %>
-            <p>⭕️ <%= link_to user.last_name + " " + user.first_name, user %></p>
+        <tr>
+        <th class="text-center">⭕️</th>
+        <td><%= link_to user.last_name + " " + user.first_name, user ,class: "text-center" %></td>
+        </tr>
         <% else %>
-            <p>❌ <%= link_to user.last_name + " " + user.first_name, user %></p>
+        <tr>
+        <th class="text-center">❌</th>
+        <td><%= link_to user.last_name + " " + user.first_name, user ,class: "text-center" %></td>
+        </tr>
         <% end %>
     <% end %>
+    </table>
+    
 
     <h2>他のクラスの出席状況をみる</h2>
 
