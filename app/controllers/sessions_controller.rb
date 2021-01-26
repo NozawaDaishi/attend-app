@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = User.find_by(student_number: params[:session][:student_number].downcase)
+        user = User.find_by(number: params[:session][:number].downcase)
         if user && user.authenticate(params[:session][:password])
             log_in user
             redirect_to user
         else
-            flash.now[:danger] = 'Invalid student_number/password combination'
+            flash.now[:danger] = 'Invalid number/password combination'
             render 'new'
         end
     end

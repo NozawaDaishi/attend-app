@@ -22,7 +22,7 @@
             <% @users.each do |user| %>
                 <tr>
                     <td><%= user.klass %></td>
-                    <td><%= user.student_number %></td>
+                    <td><%= user.number %></td>
                     <td><%= link_to user.last_name, user %><%= link_to user.first_name, user %></td>
                     <td>
                         <%= link_to "編集", [:edit, user] %> |
