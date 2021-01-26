@@ -1,19 +1,22 @@
+
 <% if current_user.teacher? %>
 
     <h1>先生用ページ</h1>
 
-    <h2>現在の<%= current_user.klass %>の出席状況（<%= Time.zone.now %>）</h2>
+    <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now %>）</h2>
 
-    <% @myklass.each do |user| %>
+    <% @students.each do |user| %>
         <p><%= user.last_name + user.first_name %>
-        <% if user.attends.where("date LIKE ?", "%#{@today}%").empty? %>
-            ❌
-        <% else %>
+        <% if user.attends.that_day?(@today) %>
             ⭕️
+        <% else %>
+            ❌
         <% end %>
     <% end %>
 
     <h2>他のクラスの出席状況をみる<h2>
+
+    <%= link_to %>
 <% else %>
 
     <h1>生徒用ページ</h1>

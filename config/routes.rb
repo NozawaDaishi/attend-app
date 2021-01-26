@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   get '/', to: 'attends#index'
+  get '/class/:klass', to: 'attends#index'
 end
