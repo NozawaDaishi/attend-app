@@ -2,7 +2,8 @@ class User < ApplicationRecord
     has_secure_password
     has_many :attends
 
-    scope :myklass, -> (klass) { where(klass: klass).where(role: 1) }
+    scope :students, -> (klass) { where(klass: klass).where(role: 1) }
+    scope :class_list, -> { select('klass').to_a.map { |k| k.klass }.uniq }
     
     validates :uid, presence: true, uniqueness: true
     validates :klass, presence: true
