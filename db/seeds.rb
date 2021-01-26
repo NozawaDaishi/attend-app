@@ -47,6 +47,10 @@ User.create!(
     role: 2
 )
 
+## 毎日出席している生徒
 user = User.first
-user.attends.create!(date: Time.now)
-user.attends.create!(date: Time.now.tomorrow)
+5.times do |i|
+    user.attends.create!(date: "2021-01-2#{i + 19} 00:00:00")
+end
+
+user.attends.create!(date: "2021-01-26 00:00:00")
