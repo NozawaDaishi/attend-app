@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_015928) do
+ActiveRecord::Schema.define(version: 2021_01_26_022126) do
 
   create_table "attends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_015928) do
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "klass", null: false
-    t.integer "student_number"
+    t.integer "number"
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
