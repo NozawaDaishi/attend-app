@@ -5,20 +5,20 @@
     <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
 
     <% @students.each do |user| %>
-        <p><%= user.last_name + user.first_name %>
         <% if user.attends.that_day?(@today) %>
-            ⭕️
+            <p>⭕️ <%= link_to user.last_name + " " + user.first_name, user %></p>
         <% else %>
-            ❌
+            <p>❌ <%= link_to user.last_name + " " + user.first_name, user %></p>
         <% end %>
     <% end %>
 
     <h2>他のクラスの出席状況をみる</h2>
 
+    <div class="list-group">
     <% User.klass_list.each do |klass| %>
-        <%= link_to klass, "/class/#{klass}" %>
-        <br>
+        <%= link_to klass, "/class/#{klass}" , class: "list-group-item list-group-item-action btn btn-lg" %>
     <% end %>
+    </div>
 <% else %>
 
     <h1>生徒用ページ</h1>
