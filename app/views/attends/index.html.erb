@@ -1,10 +1,11 @@
+<div class="card m-5 p-5">
 <% if current_user.teacher? %>
-
+    
     <h1>先生用ページ</h1>
 
     <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
 
-    <div class="m-5 p-5">
+    <div class="mx-auto" style="width:40rem">
     <table class="table table-bordered table-hover table-sm">
         <caption>List of Attendance</caption>
         <thead class="thead-dark text-center">
@@ -56,3 +57,4 @@
     <h2>現在の出席率</h2>
 
 <% end %>
+</div>
