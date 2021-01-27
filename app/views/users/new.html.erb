@@ -1,8 +1,13 @@
 <% @page_title = "ユーザーの新規登録" %>
 
-<h1><%= @page_title %></h1>
-
-<%= form_for @user do |form| %>
-    <%= render "form", form: form %>
-    <div><%= form.submit %></div>
-<% end %>
+<div class="card m-5 p-5">
+    <h1 class="text-center"><%= @page_title %></h1>
+    <div class="mx-auto" style="width:20rem">
+        <div class="text-center">
+            <%= form_for @user do |form| %>
+                <%= render "form", form: form %>
+                <div><%= form.submit %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

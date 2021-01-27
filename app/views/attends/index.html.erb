@@ -11,6 +11,7 @@
         <thead class="thead-dark text-center">
             <tr>
                 <th scope="col" style="width:25rem">出席</th>
+                <th scope="col" style="width:25rem">学籍番号</th>
                 <th scope="col" style="width:50rem">氏名</th>
             </tr>
         </thead>
@@ -18,13 +19,15 @@
             <% @students.each do |user| %>
                 <% if user.attends.that_day?(12.hours.ago, @now) %>
                     <tr>
-                        <th class="text-success" scope="row" style="width:25rem"><i class="far fa-check-circle fa-lg"></i></th>
-                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user ,class: "" %></td>
+                        <td class="text-success" scope="row" style="width:25rem"><i class="far fa-check-circle fa-lg"></i></td>
+                        <td style="width:25rem;"><%= user.number %></td>
+                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
                     </tr>
                 <% else %>
                     <tr>
-                        <th class="text-danger" scope="row" style="width:25rem"><i class="fas fa-ban fa-lg"></i></th>
-                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user ,class: "mx-auto" %></td>
+                        <td class="text-danger" scope="row" style="width:25rem"><i class="fas fa-ban fa-lg"></i></td>
+                        <td style="width:25rem;"><%= user.number %></td>
+                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
                     </tr>
                 <% end %>
             <% end %>
