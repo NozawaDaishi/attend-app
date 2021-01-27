@@ -16,7 +16,7 @@
       </header>
       <main>
       <% if flash.notice %>
-          <p class="alert alert-success"><%= flash.notice %></p>
+          <p class="alert alert-success shadow m-3 p-3 mb-5 rounded"><i class="fas fa-bullhorn fa-lg"></i>　<%= flash.notice %></p>
       <% end %>
 
         <%= yield %>
