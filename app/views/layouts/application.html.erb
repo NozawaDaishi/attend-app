@@ -10,13 +10,14 @@
   </head>
 
   <body>
-    <div id="container">
+    
+    <div id="container" class="bg-light">
       <header>
         <%= render "shared/header" %>
       </header>
       <main>
       <% if flash.notice %>
-          <p class="alert alert-success shadow m-3 p-3 mb-5 rounded"><i class="fas fa-bullhorn fa-lg"></i>　<%= flash.notice %></p>
+          <p class="alert alert-success shadow mx-5 mt-3 mb-1 p-3 rounded"><i class="fas fa-bullhorn fa-lg"></i>　<%= flash.notice %></p>
       <% end %>
 
         <%= yield %>

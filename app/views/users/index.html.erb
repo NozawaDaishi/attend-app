@@ -1,6 +1,6 @@
 <% @page_title = "クラス名簿" %>
 
-<div class="card m-5 p-5 shadow-lg p-3 mb-5 bg-white rounded">
+<div class="card m-5 p-5">
 <h1 class="text-center"><%= @page_title %></h1>
 
 <% if @users.present? %>
@@ -11,6 +11,7 @@
         <% end %>
         <div><%= link_to "ユーザーの新規登録", :new_user %></div>
         <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
+            <caption>List of class</caption>
             <thead class="thead-light text-center">
                 <tr>
                     <th scope="col">クラス</th>
