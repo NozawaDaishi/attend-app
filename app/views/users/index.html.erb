@@ -1,43 +1,51 @@
 <% @page_title = "クラス名簿" %>
 
 <div class="card m-5 p-5">
-<h1 class="text-center"><%= @page_title %></h1>
+    <h1 class="text-center"><%= @page_title %></h1>
 
-<% if @users.present? %>
-    <div class="mx-auto" style="width:40rem">
-        <%= form_tag :search_users, method: :get, class: "search" do %>
-            <%= text_field_tag "q", params[:q] %>
-            <%= submit_tag "検索" %>
-        <% end %>
-        <div><%= link_to "ユーザーの新規登録", :new_user %></div>
-        <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
-            <caption>List of Student</caption>
-            <thead class="thead-light text-center">
-                <tr>
-                    <th scope="col">クラス</th>
-                    <th scope="col">学籍番号</th>
-                    <th scope="col">氏名</th>
-                    <th scope="col">操作</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <% @users.each do |user| %>
+    <% if @users.present? %>
+        <div class="mx-auto mt-5" style="width:40rem">
+            <%= form_tag :search_users, method: :get, class: "search" do %>
+                <%= text_field_tag "q", params[:q] %>
+                <%= submit_tag "検索" %>
+            <% end %>
+            <div><%= link_to "ユーザーの新規登録", :new_user %></div>
+            <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
+                <caption>List of Student</caption>
+                <thead class="thead-light text-center">
                     <tr>
-                        <td><%= user.klass %></td>
-                        <td><%= user.number %></td>
-                        <td><%= link_to user.last_name + " " + user.first_name, user %></td>
-                        <td>
-                            <%= link_to "編集", [:edit, user] %> |
-                            <%= link_to "削除", user, method: :delete,
-                                data: { confirm: "本当に削除しますか？" } %>
-                        </td>
+                        <th scope="col">クラス</th>
+                        <th scope="col">学籍番号</th>
+                        <th scope="col">氏名</th>
+                        <th scope="col">操作</th>
                     </tr>
-                <% end %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="text-center">
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= user.klass %></td>
+                            <td><%= user.number %></td>
+                            <td><%= link_to user.last_name + " " + user.first_name, user %></td>
+                            <td>
+                                <%= link_to "編集", [:edit, user] %> |
+                                <%= link_to "削除", user, method: :delete,
+                                    data: { confirm: "本当に削除しますか？" } %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% else %>
+        <div><%= link_to "ユーザーの新規登録", :new_user %></div>
+        <p>名簿情報がありません。</p>
+    <% end %>
+
+    <h2 class="text-center">他のクラスの名簿</h2>
+
+    <div class="list-group text-center mx-auto" style="width:40rem">
+    <% User.klass_list.each do |klass| %>
+        <%= link_to klass, "/users/class/#{klass}" , class: "list-group-item list-group-item-action btn btn-lg" %>
+    <% end %>
     </div>
-<% else %>
-    <div><%= link_to "ユーザーの新規登録", :new_user %></div>
-    <p>名簿情報がありません。</p>
-<% end %>
 </div>
