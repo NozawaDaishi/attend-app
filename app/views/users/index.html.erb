@@ -1,38 +1,42 @@
-<% @page_title = "名簿" %>
-<h1><%= @page_title %></h1>
+<% @page_title = "クラス名簿" %>
 
-<%= form_tag :search_users, method: :get, class: "search" do %>
-    <%= text_field_tag "q", params[:q] %>
-    <%= submit_tag "検索" %>
-<% end %>
-
-<div class="toolbar"><%= link_to "ユーザーの新規登録", :new_user %></div>
+<div class="card m-5 p-5 shadow-lg p-3 mb-5 bg-white rounded">
+<h1 class="text-center"><%= @page_title %></h1>
 
 <% if @users.present? %>
-    <table class="list">
-        <thead>
-            <tr>
-                <th>クラス</th>
-                <th>学籍番号</th>
-                <th>氏名</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @users.each do |user| %>
+    <div class="mx-auto" style="width:40rem">
+        <%= form_tag :search_users, method: :get, class: "search" do %>
+            <%= text_field_tag "q", params[:q] %>
+            <%= submit_tag "検索" %>
+        <% end %>
+        <div><%= link_to "ユーザーの新規登録", :new_user %></div>
+        <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
+            <thead class="thead-light text-center">
                 <tr>
-                    <td><%= user.klass %></td>
-                    <td><%= user.number %></td>
-                    <td><%= link_to user.last_name + " " + user.first_name, user %></td>
-                    <td>
-                        <%= link_to "編集", [:edit, user] %> |
-                        <%= link_to "削除", user, method: :delete,
-                            data: { confirm: "本当に削除しますか？" } %>
-                    </td>
+                    <th scope="col">クラス</th>
+                    <th scope="col">学籍番号</th>
+                    <th scope="col">氏名</th>
+                    <th scope="col">操作</th>
                 </tr>
-            <% end %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="text-center">
+                <% @users.each do |user| %>
+                    <tr>
+                        <td><%= user.klass %></td>
+                        <td><%= user.number %></td>
+                        <td><%= link_to user.last_name + " " + user.first_name, user %></td>
+                        <td>
+                            <%= link_to "編集", [:edit, user] %> |
+                            <%= link_to "削除", user, method: :delete,
+                                data: { confirm: "本当に削除しますか？" } %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 <% else %>
+    <div><%= link_to "ユーザーの新規登録", :new_user %></div>
     <p>名簿情報がありません。</p>
 <% end %>
+</div>

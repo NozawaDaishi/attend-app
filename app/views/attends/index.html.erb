@@ -3,10 +3,10 @@
     
     <h1>先生用ページ</h1>
 
-    <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
+    <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
 
     <div class="mx-auto" style="width:40rem">
-    <table class="table table-bordered table-hover table-sm">
+    <table class="table table-bordered table-hover table-sm shadow p-3 mb-5 bg-white rounded">
         <caption>List of Attendance</caption>
         <thead class="thead-dark text-center">
             <tr>
