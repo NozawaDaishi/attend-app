@@ -3,29 +3,30 @@
 <div class="card m-5 p-5">
 <h1 class="text-center"><%= @page_title %></h1>
 
-<div class="mx-auto">
+<div class="mx-auto" style="width:20rem">
     <div><%= link_to "編集", [:edit, @user] %></div>
     <div class="text-center">
         <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
+            <caption>Details of Student</caption>
             <tr>
                 <th class="table-dark" scope="col">クラス</th>
-                <td style="width:25rem"><%= @user.klass %></td>
+                <td style="width:15rem"><%= @user.klass %></td>
             </tr>
             <tr>
                 <th class="table-dark" scope="col">学籍番号</th>
-                <td style="width:25rem"><%= @user.number %></td>
+                <td style="width:15rem"><%= @user.number %></td>
             </tr>
             <tr>
                 <th class="table-dark" scope="col">姓</th>
-                <td style="width:25rem"><%= @user.last_name %></td>
+                <td style="width:15rem"><%= @user.last_name %></td>
             </tr>
             <tr>
                 <th class="table-dark" scope="col">名</th>
-                <td style="width:25rem"><%= @user.first_name %></td>
+                <td style="width:15rem"><%= @user.first_name %></td>
             </tr>
             <tr>
                 <th class="table-dark" scope="col">役職</th>
-                <td style="width:25rem"><%= @user.role == 1 ? "生徒" : "教師" %></td>
+                <td style="width:15rem"><%= @user.role == 1 ? "生徒" : "教師" %></td>
             </tr>
         </table>
     </div>
