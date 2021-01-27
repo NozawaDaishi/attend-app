@@ -4,25 +4,32 @@
 
     <h2>現在の<%= @klass %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
 
-    <table>
-        <tr>
-        <th  class="text-center" width="100">出席</th>
-        <td class="text-center">氏名</td>
-        </tr>
-    <% @students.each do |user| %>
-        <% if user.attends.that_day?(@today) %>
-        <tr>
-        <th class="text-center">⭕️</th>
-        <td><%= link_to user.last_name + " " + user.first_name, user ,class: "text-center" %></td>
-        </tr>
-        <% else %>
-        <tr>
-        <th class="text-center">❌</th>
-        <td><%= link_to user.last_name + " " + user.first_name, user ,class: "text-center" %></td>
-        </tr>
-        <% end %>
-    <% end %>
+    <div class="m-5">
+    <table class="table table-bordered table-hover table-sm">
+        <caption>List of Attendance</caption>
+        <thead class="thead-dark text-center">
+            <tr>
+                <th scope="col" style="width:25rem">出席</th>
+                <th scope="col" style="width:50rem">氏名</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <% @students.each do |user| %>
+                <% if user.attends.that_day?(@today) %>
+                    <tr>
+                        <th class="text-success" scope="row" style="width:25rem">⭕️</th>
+                        <td style="width:50rem"><%= link_to user.last_name + " " + user.first_name, user ,class: "" %></td>
+                    </tr>
+                <% else %>
+                    <tr>
+                        <th scope="row" style="width:25rem"><p class="text-success">×</p></th>
+                        <td style="width:50rem"><%= link_to user.last_name + " " + user.first_name, user ,class: "mx-auto" %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
     </table>
+    </div>
     
 
     <h2>他のクラスの出席状況をみる</h2>
