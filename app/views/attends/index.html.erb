@@ -3,7 +3,7 @@
     
     <h1>先生用ページ</h1>
 
-    <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= Time.zone.now.strftime("%Y年%-m月%-d日 %-H時%-M分") %>）</h2>
+    <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %>）</h2>
 
     <div class="mx-auto" style="width:40rem">
     <table class="table table-bordered table-hover table-sm shadow p-3 mb-5 bg-white rounded">
@@ -16,7 +16,7 @@
         </thead>
         <tbody class="text-center">
             <% @students.each do |user| %>
-                <% if user.attends.that_day?(@today) %>
+                <% if user.attends.that_day?(12.hours.ago, @now) %>
                     <tr>
                         <th class="text-success" scope="row" style="width:25rem"><i class="far fa-check-circle fa-lg"></i></th>
                         <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user ,class: "" %></td>
@@ -47,7 +47,7 @@
     <h2>今日の出席状態</h2>
 
     <ul>
-        <% if current_user.attends.that_day?(@today) %>
+        <% if current_user.attends.that_day?(12.hours.ago, @now) %>
             <li class="text-success">現在出席しています。</li>
         <% else %>
             <li class="text-danger">現在出席していません。</li>

@@ -1,6 +1,6 @@
 class AttendsController < ApplicationController
     def index
-        @today = Time.zone.now.strftime('%Y-%m-%d')
+        @now = Time.zone.now
 
         if current_user.teacher?
             @klass = params[:klass] || current_user.klass
