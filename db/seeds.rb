@@ -49,8 +49,10 @@ User.create!(
 
 ## 毎日出席している生徒
 user = User.first
+user2 = User.find(2)
 5.times do |i|
     user.attends.create!(date: "2021-01-2#{i + 19} 09:00:00")
+    user2.attends.create!(date: "2021-01-2#{i + 19} 09:00:00")
 end
 
 user.attends.create!(date: "2021-01-26 09:00:00")

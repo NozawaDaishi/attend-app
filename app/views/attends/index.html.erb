@@ -1,3 +1,10 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<style>
+    .count {
+        font-family: 'Roboto Mono', monospace;
+    }
+</style>
+
 <div class="card m-5 p-5">
 <% if current_user.teacher? %>
     
@@ -56,5 +63,45 @@
 
     <h2>現在の出席率</h2>
 
+    <% if @attend_rate >= 80 %>
+        <h1 class="text-success count"><%= @attend_rate %>%</h1>
+        <p id="count" data-from="0" data-to="4096">0</p>
+    <% else %>
+        <h1 class="text-danger count"><%= @attend_rate %>%</h1>
+        <p>※現在80%を下回っています。</p>
+    <% end %>
+
 <% end %>
 </div>
+
+<script>
+    const el = {
+    count: document.getElementById('count'),
+    button: document.getElementById('button')
+    }
+    const DURATION = 3.6
+    let isAnimating = false
+
+    el.button.addEventListener('click', e => {
+    if (isAnimating) {
+        return
+    }
+    
+    isAnimating = true
+
+    const from = parseInt(el.count.dataset.from, 10)
+    const to = parseInt(el.count.dataset.to, 10)
+    let obj = {count: from}
+    
+    TweenMax.to(obj, DURATION, {
+        count: to,
+        ease: Power3.easeInOut,
+        onUpdate: () => {
+        el.count.textContent = Math.floor(obj.count)
+        },
+        onComplete: () => {
+        isAnimating = false
+        }
+    })
+    })
+</script>
