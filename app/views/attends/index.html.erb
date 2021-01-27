@@ -66,44 +66,55 @@
 
     <h2>現在の出席率</h2>
 
-    <% if @attend_rate >= 80 %>
-        <h1 class="text-success count"><%= @attend_rate %>%</h1>
-        <p id="count" data-from="0" data-to="4096">0</p>
+    <% if @attend_rate >= 90 %>
+        <h1 id="count" class="text-success" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
     <% else %>
-        <h1 class="text-danger count"><%= @attend_rate %>%</h1>
-        <p>※現在80%を下回っています。</p>
+        <h1 id="count" class="text-danger" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
+        <p>※現在90%を下回っています。</p>
     <% end %>
-    <p id="count" data-from="0.00" data-to="80.91">0</p>
     <button id="button">Start!</button>
 
 <% end %>
 </div>
 
 <script>
+    /**
+    * 任意の桁で四捨五入する関数
+    * @param {number} value 四捨五入する数値
+    * @param {number} base どの桁で四捨五入するか（10→10の位、0.1→小数第１位）
+    * @return {number} 四捨五入した値
+    */
+    function orgRound(value, base) {
+        return Math.round(value * base) / base;
+    }
+
     const el = {
         count: document.getElementById('count'),
         button: document.getElementById('button')
     }
-        const DURATION = 3.6
-        let isAnimating = false
 
-        el.button.addEventListener('click', e => {
-            if (isAnimating) {
-                return
-            }
-        
+    const DURATION = 3
+    let isAnimating = false
+
+    window.addEventListener('DOMContentLoaded', e => {
+        if (isAnimating) {
+            return
+        }
+    
         isAnimating = true
 
-        const from = parseInt(el.count.dataset.from, 10)
+        const from = Number(el.count.dataset.from)
         console.log(from)
-        const to = parseInt(el.count.dataset.to, 10)
+        const to = Number(el.count.dataset.to)
+        console.log(to)
         let obj = {count: from}
-        
+    
         TweenMax.to(obj, DURATION, {
             count: to,
             ease: Power3.easeInOut,
             onUpdate: () => {
-                el.count.textContent = Math.floor(obj.count)
+                el.count.textContent = orgRound(obj.count, 100) + "%"
+                console.log(orgRound(obj.count, 100))
             },
             onComplete: () => {
                 isAnimating = false
