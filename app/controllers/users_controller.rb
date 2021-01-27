@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     def index
-        @users = User.order(number: "ASC")
+        # @users = User.order(number: "ASC")
+        klass = params[:klass] || current_user.klass
+        @users = User.students(klass).order(:number)
     end
     
     def show
