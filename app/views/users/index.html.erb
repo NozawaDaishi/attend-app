@@ -9,7 +9,7 @@
                 <%= text_field_tag "q", params[:q] %>
                 <%= submit_tag "検索" %>
             <% end %>
-            <div><%= link_to "ユーザーの新規登録", :new_user %></div>
+            <div><%= link_to "ユーザーの新規登録", :new_user ,class: "btn btn-outline-info m-2"%></div>
             <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
                 <caption>List of Student</caption>
                 <thead class="thead-light text-center">
@@ -27,9 +27,9 @@
                             <td><%= user.number %></td>
                             <td><%= link_to user.last_name + " " + user.first_name, user %></td>
                             <td>
-                                <%= link_to "編集", [:edit, user] %> |
+                                <%= link_to "編集", [:edit, user] ,class: "btn btn-primary btn-sm"%> |
                                 <%= link_to "削除", user, method: :delete,
-                                    data: { confirm: "本当に削除しますか？" } %>
+                                    data: { confirm: "本当に削除しますか？" } ,class: "btn btn-danger btn-sm"%>
                             </td>
                         </tr>
                     <% end %>
