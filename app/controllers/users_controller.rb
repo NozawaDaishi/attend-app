@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :edit_is_only_teacher, only: [:edit, :update]
+
     def index
         # @users = User.order(number: "ASC")
         klass = params[:klass] || current_user.klass
