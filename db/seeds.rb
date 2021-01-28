@@ -56,4 +56,5 @@ user2 = User.find(2)
 end
 
 user.attends.create!(date: "2021-01-26 09:00:00")
+user.attends.create!(date: "2021-01-27 09:00:00")
 user.attends.create!(date: Time.zone.now)
