@@ -7,71 +7,71 @@
 </style>
 
 <div class="card m-5 p-5">
-<% if current_user.teacher? %>
-    
-    <h1>教師用ページ</h1>
+    <% if current_user.teacher? %>
+        
+        <h1>教師用ページ</h1>
 
-    <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %>）</h2>
+        <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %>）</h2>
 
-    <div class="mx-auto mt-5" style="width:40rem">
-    <table class="table table-bordered table-hover table-sm shadow p-3 mb-5 bg-white rounded">
-        <caption>List of Attendance</caption>
-        <thead class="thead-dark text-center">
-            <tr>
-                <th scope="col" style="width:25rem">出席</th>
-                <th scope="col" style="width:25rem">学籍番号</th>
-                <th scope="col" style="width:50rem">氏名</th>
-            </tr>
-        </thead>
-        <tbody class="text-center">
-            <% @students.each do |user| %>
-                <% if user.attends.that_day?(12.hours.ago, @now) %>
-                    <tr>
-                        <td class="text-success" scope="row" style="width:25rem"><i class="far fa-check-circle fa-lg"></i></td>
-                        <td style="width:25rem;"><%= user.number %></td>
-                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
-                    </tr>
-                <% else %>
-                    <tr>
-                        <td class="text-danger" scope="row" style="width:25rem"><i class="fas fa-ban fa-lg"></i></td>
-                        <td style="width:25rem;"><%= user.number %></td>
-                        <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
-                    </tr>
+        <div class="mx-auto mt-5" style="width:40rem">
+        <table class="table table-bordered table-hover table-sm shadow p-3 mb-5 bg-white rounded">
+            <caption>List of Attendance</caption>
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th scope="col" style="width:25rem">出席</th>
+                    <th scope="col" style="width:25rem">学籍番号</th>
+                    <th scope="col" style="width:50rem">氏名</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <% @students.each do |user| %>
+                    <% if user.attends.that_day?(12.hours.ago, @now) %>
+                        <tr>
+                            <td class="text-success" scope="row" style="width:25rem"><i class="far fa-check-circle fa-lg"></i></td>
+                            <td style="width:25rem;"><%= user.number %></td>
+                            <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
+                        </tr>
+                    <% else %>
+                        <tr>
+                            <td class="text-danger" scope="row" style="width:25rem"><i class="fas fa-ban fa-lg"></i></td>
+                            <td style="width:25rem;"><%= user.number %></td>
+                            <td style="width:50rem;"><%= link_to user.last_name + " " + user.first_name, user %></td>
+                        </tr>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </tbody>
-    </table>
-    </div>
-    
-    <h2 class="text-center">他のクラスの出席状況を見る</h2>
+            </tbody>
+        </table>
+        </div>
+        
+        <h2 class="text-center">他のクラスの出席状況を見る</h2>
 
-    <div class="list-group text-center mx-auto" style="width:40rem">
-    <% User.klass_list.each do |klass| %>
-        <%= link_to klass, "/class/#{klass}" , class: "list-group-item list-group-item-action btn btn-lg" %>
-    <% end %>
-    </div>
-<% else %>
-
-    <h1>生徒用ページ</h1>
-
-    <h2>今日の出席状態</h2>
-
-    <ul>
-        <% if current_user.attends.that_day?(12.hours.ago, @now) %>
-            <li class="text-success">現在出席しています。</li>
-        <% else %>
-            <li class="text-danger">現在出席していません。</li>
+        <div class="list-group text-center mx-auto" style="width:40rem">
+        <% User.klass_list.each do |klass| %>
+            <%= link_to klass, "/class/#{klass}" , class: "list-group-item list-group-item-action btn btn-lg" %>
         <% end %>
-    </ul>
+        </div>
+    <% else %>
 
-    <h2>現在の出席率</h2>
+        <h1>生徒用ページ</h1>
 
-    <div class="attend-rate-area">
-        <h1 id="count" class="text-danger" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
-        <p class="danger-message"></p>
-    </div>
+        <h2>今日の出席状態</h2>
 
-<% end %>
+        <ul>
+            <% if current_user.attends.that_day?(12.hours.ago, @now) %>
+                <li class="text-success">現在出席しています。</li>
+            <% else %>
+                <li class="text-danger">現在出席していません。</li>
+            <% end %>
+        </ul>
+
+        <h2>現在の出席率</h2>
+
+        <div class="attend-rate-area">
+            <h1 id="count" class="text-danger" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
+            <p class="danger-message"></p>
+        </div>
+
+    <% end %>
 </div>
 
 <script>
@@ -124,3 +124,4 @@
             }
         })
     });
+</script>
