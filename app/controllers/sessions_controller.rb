@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             log_in user
             redirect_to root_url, notice: 'ログインしました。'
         else
-            flash.now[:danger] = 'Invalid number/password combination'
+            flash.now[:danger] = 'ユーザーIDまたはパスワードが間違っています。'
             render 'new'
         end
     end

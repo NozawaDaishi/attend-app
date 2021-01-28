@@ -1,5 +1,8 @@
 <% @page_title = "ログイン" %>
 
+<% if flash.now[:danger] %>
+    <p class="alert alert-danger shadow mx-5 mt-3 mb-1 p-3 rounded"><i class="fas fa-exclamation-triangle"></i>　<%= flash.now[:danger] %></p>
+<% end %>
 
 <div class="card mx-auto m-5 shadow-lg p-3 mb-5 bg-white rounded" style="width: 25rem;">
     <article class="card-body">
