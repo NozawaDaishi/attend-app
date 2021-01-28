@@ -4,7 +4,6 @@
         <%= link_to "ホーム", :root , {class: "p-2 text-dark"} %>
         <% if current_user&.teacher?  %>
             <%= link_to "クラス名簿", :users , {class: "p-2 text-dark"} %>
-            <%= link_to "管理ページ", "#" , {class: "p-2 text-dark"} %>
         <% end %>
         <% if logged_in? %>
             <%= link_to "マイページ", current_user , {class: "p-2 text-dark"} %>
