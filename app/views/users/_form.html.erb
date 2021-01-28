@@ -3,19 +3,19 @@
 <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
     <tr>
         <th class="table-dark" scope="col"><%= form.label :klass %></th>
-        <td style="width:15rem"><%= form.text_field :klass %></td>
+        <td style="width:15rem"><%= form.text_field :klass, :placeholder => "R0A0" %></td>
     </tr>
     <tr>
         <th class="table-dark" scope="col"><%= form.label :number %></th>
-        <td style="width:15rem"><%= form.text_field :number %></td>
+        <td style="width:15rem"><%= form.text_field :number, :placeholder => "171000" %></td>
     </tr>
     <tr>
         <th class="table-dark" scope="col"><%= form.label :last_name %></th>
-        <td style="width:15rem"><%= form.text_field :last_name %></td>
+        <td style="width:15rem"><%= form.text_field :last_name, :placeholder => "情報" %></td>
     </tr>
     <tr>
         <th class="table-dark" scope="col"><%= form.label :first_name %></th>
-        <td style="width:15rem"><%= form.text_field :first_name %></td>
+        <td style="width:15rem"><%= form.text_field :first_name, :placeholder => "太郎" %></td>
     </tr>
     <tr>
         <th class="table-dark" scope="col"><%= User.human_attribute_name(:role) %></th>
@@ -26,4 +26,8 @@
             <%= form.label :role_2 %>
         </td>
     </tr>
+    <% if @user.new_record? %>
+        <th class="table-dark" scope="col"><%= form.label :password %></th>
+        <td style="width:15rem"><%= form.text_field :password, :placeholder => "PASSWORD" %></td>
+    <% end %>
 </table>
