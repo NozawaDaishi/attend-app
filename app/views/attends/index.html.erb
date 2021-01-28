@@ -85,16 +85,16 @@
         return Math.round(value * base) / base;
     }
 
-    const el = {
+    var el = {
         count: document.getElementById('count'),
         button: document.getElementById('button'),
         attendRate: document.querySelector('.attend-rate-area')
     }
 
-    const DURATION = 2.9
-    let isAnimating = false
+    var DURATION = 2.9
+    var isAnimating = false
 
-    window.addEventListener('DOMContentLoaded', e => {
+    $(document).on('turbolinks:load', function() {
         if (isAnimating) {
             return
         }
@@ -102,7 +102,7 @@
         isAnimating = true
 
         const from = Number(el.count.dataset.from)
-        const to = Number(el.count.dataset.to)
+        const to   = Number(el.count.dataset.to)
         let obj = {count: from}
     
         TweenMax.to(obj, DURATION, {
@@ -110,6 +110,7 @@
             ease: Power3.easeInOut,
             onUpdate: () => {
                 el.count.textContent = orgRound(obj.count, 100) + "%"
+
                 if (obj.count >= 90) {
                     el.count.classList.add('text-success')
                     el.count.classList.remove('text-danger')
@@ -122,5 +123,4 @@
                 isAnimating = false
             }
         })
-    })
-</script>
+    });
