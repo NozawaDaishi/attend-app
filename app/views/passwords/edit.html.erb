@@ -3,7 +3,7 @@
 <div class="card m-5 p-5">
     <h1 class="text-center"><%= @page_title %></h1>
     <div class="mx-auto  mt-5" style="width:40rem">
-        <div><% link_to "マイページに戻る", :user %></div>
+        <div><%= link_to "マイページに戻る", @user ,class: "btn btn-outline-info btn-sm m-1"%></div>
         <div class="text-center">
             <%= form_for @user, as: "user", url: :password do |form| %>
                 <%= render "shared/errors", obj: @user %>
