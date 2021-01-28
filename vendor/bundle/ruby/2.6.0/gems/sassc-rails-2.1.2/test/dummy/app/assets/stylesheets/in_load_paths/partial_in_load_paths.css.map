@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,sBAAsB,CAAC;EACrB,KAAK,EAAE,OACT;CAAC",
+    "sources": [
+        "partial_in_load_paths.scss"
+    ],
+    "names": [],
+    "file": "partial_in_load_paths.css"
+}

@@ -1,0 +1,15 @@
+current directory: /Users/kaito.chika/Desktop/project/attend-app/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/Users/kaito.chika/.rbenv/versions/2.6.6/bin/ruby -I /Users/kaito.chika/.rbenv/versions/2.6.6/lib/ruby/2.6.0 -r ./siteconf20210128-36251-1yelm3n.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kaito.chika/Desktop/project/attend-app/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/kaito.chika/Desktop/project/attend-app/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/kaito.chika/Desktop/project/attend-app/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20210128-36251-lkiyrn

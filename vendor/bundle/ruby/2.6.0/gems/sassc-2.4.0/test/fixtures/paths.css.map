@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,GAAG,CAAC;EACD,GAAG,EAAE,0BAA0B;EAC/B,GAAG,EAAE,0BAA0B;EAC/B,GAAG,EAAE,0BAA0B;EAC/B,GAAG,EAAE,0BAA0B;EAC/B,GAAG,EAAE,0BAA0B;EAC/B,GAAG,EAAE,8BAA8B;EACnC,GAAG,EAAE,8BAA8B;EACnC,GAAG,EAAE,+BAA+B;CACtC",
+    "sources": [
+        "paths.scss"
+    ],
+    "names": [],
+    "file": "paths.css"
+}

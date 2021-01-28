@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": ";AAEA,AAAA,MAAM,CAAC;EACL,KAAK,EAHK,IAAI;CAIf",
+    "sources": [
+        "special_characters.scss"
+    ],
+    "names": [],
+    "file": "special_characters.css"
+}

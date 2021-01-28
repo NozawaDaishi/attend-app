@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,MAAM,EAAE,cAAc;CACvB",
+    "sources": [
+        "relative_not_a_partial.scss"
+    ],
+    "names": [],
+    "file": "relative_not_a_partial.css"
+}

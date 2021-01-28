@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAP,uJAAO;AAAkB,6DAA6D;ACAtF,AAAA,gBAAgB,CAAC;EACf,MAAM,EAAE,GAAG;CACZ;;ADDmB,mEAAmE",
+    "sources": [
+        "second_level.scss",
+        "_defaults.scss"
+    ],
+    "names": [],
+    "file": "second_level.css"
+}
