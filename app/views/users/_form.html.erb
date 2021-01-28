@@ -31,7 +31,9 @@
         </td>
     </tr>
     <% if @user.new_record? %>
-        <th class="table-dark" scope="col"><%= form.label :password %></th>
-        <td style="width:15rem"><%= form.text_field :password, :placeholder => "PASSWORD" %></td>
+        <tr>
+            <th class="table-dark" scope="col"><%= form.label :password %></th>
+            <td style="width:15rem"><%= form.text_field :password, :placeholder => "PASSWORD" %></td>
+        </tr>
     <% end %>
 </table>

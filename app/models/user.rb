@@ -11,6 +11,8 @@ class User < ApplicationRecord
     validates :first_name, presence: true, length: { maximum: 20 }
     validates :password, presence: true, length: { minimum: 6 }
 
+    attr_accessor :current_password
+    validates :password, presence: { if: :current_password }
 
     # 検索
     class << self

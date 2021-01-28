@@ -7,6 +7,7 @@
     <% if current_user.teacher? %>
         <div><%= link_to "編集", [:edit, @user] %></div>
     <% end %>
+    <div><%= link_to "パスワードの変更", edit_password_path(@user.id) %></div>
     <div class="text-center">
         <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
             <caption>Details of Student</caption>

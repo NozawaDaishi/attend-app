@@ -12,4 +12,9 @@ ja:
         role: 役職
         role_1: 生徒
         role_2: 教師
-        password: パスワード
+        current_password: 現在のパスワード
+        password: 新しいパスワード
+        password_confirmation: 新しいパスワードの確認
+    errors:
+      messages:
+        wrong: が正しくありません。
