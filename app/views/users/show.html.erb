@@ -7,7 +7,7 @@
     <% if current_user.teacher? %>
         <%= link_to "編集", [:edit, @user] ,class: "btn btn-outline-info btn-sm m-1"%>
     <% end %>
-    <%= link_to "パスワードの変更", edit_password_path(@user.id) ,class: "btn btn-outline-info btn-sm m-1"%>
+    <%= link_to "パスワードの変更", edit_password_path(@user.id) ,class: "btn btn-outline-info btn-sm m-1 float-md-right"%>
     <div class="text-center">
         <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
             <caption>Details of Student</caption>
