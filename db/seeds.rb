@@ -30,7 +30,7 @@ end
         last_name: Faker::Name::last_name,
         first_name: Faker::Name::first_name,
         klass: 'R4A2',
-        number: 172032 + i,
+        number: 172031 + i,
         password: 'password',
         role: 1
     )

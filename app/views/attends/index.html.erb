@@ -9,7 +9,7 @@
 <div class="card m-5 p-5">
 <% if current_user.teacher? %>
     
-    <h1>先生用ページ</h1>
+    <h1>教師用ページ</h1>
 
     <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %>）</h2>
 
