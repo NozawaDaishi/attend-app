@@ -7,7 +7,7 @@
         <div class="text-center">
             <%= form_for @user do |form| %>
                 <%= render "form", form: form %>
-                <div><%= form.submit %></div>
+                <div><%= form.submit class: "btn btn-info btn-lg" %></div>
             <% end %>
         </div>
     </div>
