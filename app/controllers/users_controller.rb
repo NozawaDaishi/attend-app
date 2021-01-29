@@ -26,9 +26,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(params[:user])
+        @user = User.new(user_params)
         if @user.save
-            log_in @user
             redirect_to @user, notice: "ユーザーを登録しました。"
         else
             render "new"
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @user.assign_attributes(params[:user])
+        @user.assign_attributes(user_params)
         if @user.save
             redirect_to @user, notice: "ユーザー情報を更新しました。"
         else
@@ -51,4 +50,19 @@ class UsersController < ApplicationController
         redirect_to :users, notice: "ユーザーを削除しました。"
     end
 
+    # ストロングパラメータ
+    private def user_params
+        attrs = [
+            :uid,
+            :last_name,
+            :first_name,
+            :number,
+            :klass,
+            :role
+        ]
+
+        attrs << :password if params[:action] == "create"
+            
+        params.require(:user).permit(attrs)
+    end
 end

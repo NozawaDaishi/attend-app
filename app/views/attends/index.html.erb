@@ -8,10 +8,11 @@
 
 <div class="card m-5 p-5">
     <% if current_user.teacher? %>
-        
-        <h1>教師用ページ</h1>
+        <div class="text-center">
+        <h1 class="mb-4 font-weight-bold">教師用ページ</h1>
 
-        <h2>現在の<%= link_to @klass ,:users %>の出席状況（<%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %>）</h2>
+        <h2>現在の<%= link_to @klass ,:users %>の出席状況</h2>
+        <p class="text-muted"><%= @now.strftime("%Y年%-m月%-d日 %-H時%M分") %></p>
 
         <div class="mx-auto mt-5" style="width:40rem">
         <table class="table table-bordered table-hover table-sm shadow p-3 mb-5 bg-white rounded">
@@ -51,24 +52,27 @@
         <% end %>
         </div>
     <% else %>
+        <div class="text-center mx-auto">
+            <h1 class="mb-4 font-weight-bold">生徒用ページ</h1>
+            <div style="width:25rem;">
+                <div class="card m-3 p-3 shadow p-3 mb-3 bg-white rounded">
+                    <h2 class="mb-4">今日の出席状態</h2>
 
-        <h1>生徒用ページ</h1>
+                    <% if current_user.attends.that_day?(12.hours.ago, @now) %>
+                        <p class="text-success"><i class="far fa-check-circle fa-lg"></i>現在出席しています。</p>
+                    <% else %>
+                        <p class="text-danger"><i class="fas fa-ban fa-lg"></i>現在出席していません。</p>
+                    <% end %>
+                </div>
+                <div class="card m-3 p-3 shadow p-3 mb-5 bg-white rounded">
+                    <h2 class="mb-4">現在の出席率</h2>
 
-        <h2>今日の出席状態</h2>
-
-        <ul>
-            <% if current_user.attends.that_day?(12.hours.ago, @now) %>
-                <li class="text-success">現在出席しています。</li>
-            <% else %>
-                <li class="text-danger">現在出席していません。</li>
-            <% end %>
-        </ul>
-
-        <h2>現在の出席率</h2>
-
-        <div class="attend-rate-area">
-            <h1 id="count" class="text-danger" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
-            <p class="danger-message"></p>
+                    <div class="attend-rate-area">
+                        <h1 id="count" class="text-danger" data-from="0.00" data-to="<%= @attend_rate %>">0.00%</h1>
+                        <p class="danger-message text-muted font-weight-bold"></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script>
