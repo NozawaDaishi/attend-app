@@ -1,10 +1,10 @@
 <%= render "shared/errors", obj: @user %>
 
 <table class="table table-bordered table-sm shadow p-3 mb-5 bg-white rounded">
-    <% if @user.new_record? %>
+    <tr>
         <th class="table-dark" scope="col"><%= form.label :uid %></th>
         <td style="width:15rem"><%= form.text_field :uid, :placeholder => "UID" %></td>
-    <% end %>
+    </tr>
     <tr>
         <th class="table-dark" scope="col"><%= form.label :klass %></th>
         <td style="width:15rem"><%= form.text_field :klass, :placeholder => "R0A0" %></td>
@@ -39,8 +39,12 @@
     </tr>
     <% if @user.new_record? %>
         <tr>
-            <th class="table-dark" scope="col"><%= form.label :password %></th>
-            <td style="width:15rem"><%= form.text_field :password, :placeholder => "PASSWORD" %></td>
+            <th class="table-dark" scope="col"><%= form.label :password , "パスワード"%></th>
+            <td style="width:15rem"><%= form.text_field :password, :placeholder => "Password" %></td>
+        </tr>
+        <tr>
+            <th class="table-dark" scope="col"><%= form.label :password_confirmation , "パスワードの確認" %></th>
+            <td style="width:15rem"><%= form.text_field :password_confirmation, :placeholder => "Password" %></td>
         </tr>
     <% end %>
 </table>
