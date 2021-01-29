@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :attends
+    has_many :attends, dependent: :destroy
 
     scope :students, -> (klass) { where(klass: klass).where(role: 1) }
     scope :klass_list, -> { select('klass').to_a.map { |k| k.klass }.uniq }
