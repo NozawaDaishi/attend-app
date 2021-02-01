@@ -5,14 +5,29 @@ class User < ApplicationRecord
     scope :students, -> (klass) { where(klass: klass).where(role: 1) }
     scope :klass_list, -> { select('klass').to_a.map { |k| k.klass }.uniq }
     
-    validates :uid, presence: true, uniqueness: true
-    validates :klass, presence: true
-    validates :last_name, presence: true, length: { maximum: 20 }
-    validates :first_name, presence: true, length: { maximum: 20 }
-    validates :password, presence: true, length: { minimum: 6 }
+    with_options on: :create_valid do
+      validates :uid, presence: true, uniqueness: true
+      validates :klass, presence: true
+      validates :last_name, presence: true, length: { maximum: 20 }
+      validates :first_name, presence: true, length: { maximum: 20 }
+      validates :password, presence: true, length: { minimum: 6 }
+      validates :password, confirmation: true
+    end
 
+    with_options on: :edit_valid do
+      validates :uid, presence: true, uniqueness: true
+      validates :klass, presence: true
+      validates :last_name, presence: true, length: { maximum: 20 }
+      validates :first_name, presence: true, length: { maximum: 20 }
+    end
+
+    with_options on: :password_edit_valid do
+      validates :password, presence: true, length: { minimum: 6 }
+      validates :password, confirmation: true
+    end
+    
     attr_accessor :current_password
-    validates :password, presence: { if: :current_password }
+    validates :password, presence: { if: :current_password } 
 
     # 検索
     class << self
