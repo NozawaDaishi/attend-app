@@ -14,18 +14,18 @@ class User < ApplicationRecord
       validates :password, confirmation: true
     end
 
-    with_options on: :edit_valid do
+    with_options on: :update_valid do
       validates :uid, presence: true, uniqueness: true
       validates :klass, presence: true
       validates :last_name, presence: true, length: { maximum: 20 }
       validates :first_name, presence: true, length: { maximum: 20 }
     end
 
-    with_options on: :password_edit_valid do
+    with_options on: :password_update_valid do
       validates :password, presence: true, length: { minimum: 6 }
       validates :password, confirmation: true
     end
-    
+
     attr_accessor :current_password
     validates :password, presence: { if: :current_password } 
 
