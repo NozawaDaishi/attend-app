@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+  before_action :prevent_other_students_from_seeing, only: [:show, :edit]
   
   def show
     redirect_to :user
