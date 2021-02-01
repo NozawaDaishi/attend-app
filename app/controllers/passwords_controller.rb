@@ -9,7 +9,7 @@ class PasswordsController < ApplicationController
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     current_password = user_params[:current_password]
 
     if current_password.present?

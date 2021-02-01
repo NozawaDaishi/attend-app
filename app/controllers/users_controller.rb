@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.assign_attributes(user_params)
         if @user.save
-            redirect_to @user, notice: "ユーザー情報を更新しました。"
+            redirect_to :user, notice: "ユーザー情報を更新しました。"
         else
             render "edit"
         end
