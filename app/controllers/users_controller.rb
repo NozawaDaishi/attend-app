@@ -60,7 +60,9 @@ class UsersController < ApplicationController
                 :first_name,
                 :number,
                 :klass,
-                :role
+                :role,
+                :password,
+                :password_confirmation
             ]
 
             attrs << :password if params[:action] == "create"
