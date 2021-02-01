@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-    before_action :edit_is_only_teacher, only: [:edit, :update]
+    before_action :must_be_teacher, except: [:show]
+    before_action :prevent_other_students_from_seeing, only: [:show]
 
     def index
-        # @users = User.order(number: "ASC")
         klass = params[:klass] || current_user.klass
         @users = User.students(klass).order(:number)
     end
@@ -51,18 +51,20 @@ class UsersController < ApplicationController
     end
 
     # ストロングパラメータ
-    private def user_params
-        attrs = [
-            :uid,
-            :last_name,
-            :first_name,
-            :number,
-            :klass,
-            :role
-        ]
+    private
+    
+        def user_params
+            attrs = [
+                :uid,
+                :last_name,
+                :first_name,
+                :number,
+                :klass,
+                :role
+            ]
 
-        attrs << :password if params[:action] == "create"
-            
-        params.require(:user).permit(attrs)
-    end
+            attrs << :password if params[:action] == "create"
+                
+            params.require(:user).permit(attrs)
+        end
 end
