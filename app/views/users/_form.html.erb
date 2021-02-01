@@ -21,23 +21,23 @@
         <th class="table-dark" scope="col"><%= form.label :first_name %></th>
         <td style="width:15rem"><%= form.text_field :first_name, :placeholder => "太郎" %></td>
     </tr>
-    <tr>
-        <th class="table-dark" scope="col"><%= User.human_attribute_name(:role) %></th>
-        <td style="width:15rem">
-            <div class="btn-group btn-group-toggle">
-                <div>
-                    <%= form.radio_button :role ,1%>
-                    <%= form.label :role_1 ,class: "btn btn-outline-secondary btn-sm"%>
-                </div>
-                　
-                <div>
-                    <%= form.radio_button :role ,2%>
-                    <%= form.label :role_2 ,class: "btn btn-outline-secondary btn-sm"%>
-                </div>
-            </div>
-        </td>
-    </tr>
     <% if @user.new_record? %>
+        <tr>
+            <th class="table-dark" scope="col"><%= User.human_attribute_name(:role) %></th>
+            <td style="width:15rem">
+                <div class="btn-group btn-group-toggle">
+                    <div>
+                        <%= form.radio_button :role ,1%>
+                        <%= form.label :role_1 ,class: "btn btn-outline-secondary btn-sm"%>
+                    </div>
+                    　
+                    <div>
+                        <%= form.radio_button :role ,2%>
+                        <%= form.label :role_2 ,class: "btn btn-outline-secondary btn-sm"%>
+                    </div>
+                </div>
+            </td>
+        </tr>
         <tr>
             <th class="table-dark" scope="col"><%= form.label :password , "パスワード"%></th>
             <td style="width:15rem"><%= form.text_field :password, :placeholder => "Password" %></td>
