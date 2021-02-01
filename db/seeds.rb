@@ -1,29 +1,44 @@
 # 実行：bin/rails db:reset
 
 User.create!(
-    uid: 'uuuuuuid',
-    last_name: '野沢',
-    first_name: 'みか',
+    uid: 'DBFBB8E1',
+    last_name: '山田',
+    first_name: '勇気',
     klass: 'R4A1',
     number: 171031,
     password: 'password',
     role: 1
 )
 
-uid_list = %w(DBFBB8E1 BBDDB1E1 CBDDACE1 AB22B9E1)
+User.create!(
+    uid: 'BBDDB1E1',
+    last_name: '長谷川',
+    first_name: '翔',
+    klass: 'R4A1',
+    number: 171032,
+    password: 'password',
+    role: 1
+)
 
-## R4A1
-uid_list.each_with_index do |uid, i|
-    User.create!(
-        uid: uid,
-        last_name: Faker::Name::last_name,
-        first_name: Faker::Name::first_name,
-        klass: 'R4A1',
-        number: 171032 + i,
-        password: 'password',
-        role: 1
-    )
-end
+User.create!(
+    uid: 'CBDDACE1',
+    last_name: '【歌い手】辻川',
+    first_name: '弘人',
+    klass: 'R4A1',
+    number: 171033,
+    password: 'password',
+    role: 1
+)
+
+User.create!(
+    uid: 'AB22B9E1',
+    last_name: '野崎',
+    first_name: 'ホビーマン',
+    klass: 'R4A1',
+    number: 171034,
+    password: 'password',
+    role: 1
+)
 
 ## R4A2
 10.times do |i|
