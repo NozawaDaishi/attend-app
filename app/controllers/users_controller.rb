@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     def show
         @user = current_user
         @user = User.find(params[:id])
+        @attend_rate = calc_attend_rate(@user)
     end
 
     def search
