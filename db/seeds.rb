@@ -10,10 +10,12 @@ User.create!(
     role: 1
 )
 
+uid_list = %w(DBFBB8E1 BBDDB1E1 CBDDACE1 AB22B9E1)
+
 ## R4A1
-10.times do |i|
+uid_list.each_with_index do |uid, i|
     User.create!(
-        uid: 'uuid' + (i + 1).to_s,
+        uid: uid,
         last_name: Faker::Name::last_name,
         first_name: Faker::Name::first_name,
         klass: 'R4A1',
