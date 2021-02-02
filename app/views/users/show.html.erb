@@ -35,7 +35,7 @@
                 <th class="table-dark" scope="col">役職</th>
                 <td style="width:15rem"><%= @user.role == 1 ? "生徒" : "教師" %></td>
             </tr>
-            <% unless current_user.teacher? %>
+            <% if !current_user.teacher? || !@user.teacher? %>
                 <tr>
                     <th class="table-dark" scope="col">出席率</th>
                     <td style="width:15rem"><%= @attend_rate %>%</td>
