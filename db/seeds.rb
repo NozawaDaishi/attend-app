@@ -64,6 +64,16 @@ User.create!(
     role: 2
 )
 
+User.create!(
+    uid: 'uuuuuuid4',
+    last_name: '五十嵐',
+    first_name: '太郎',
+    klass: 'R4A2',
+    number: 999992,
+    password: 'password',
+    role: 2
+)
+
 ## 毎日出席している生徒
 user = User.first
 user2 = User.find(2)
@@ -74,4 +84,7 @@ end
 
 user.attends.create!(date: "2021-01-26 09:00:00")
 user.attends.create!(date: "2021-01-27 09:00:00")
+user.attends.create!(date: "2021-01-28 09:00:00")
+user.attends.create!(date: "2021-01-29 09:00:00")
+user.attends.create!(date: "2021-02-01 09:00:00")
 user.attends.create!(date: Time.zone.now)
