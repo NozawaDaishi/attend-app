@@ -3,7 +3,7 @@
 User.create!(
     uid: 'DBFBB8E1',
     last_name: '山田',
-    first_name: '勇気',
+    first_name: '侑樹',
     klass: 'R4A1',
     number: 171031,
     password: 'password',
@@ -13,7 +13,7 @@ User.create!(
 User.create!(
     uid: 'BBDDB1E1',
     last_name: '長谷川',
-    first_name: '翔',
+    first_name: '翔太郎',
     klass: 'R4A1',
     number: 171032,
     password: 'password',
@@ -22,8 +22,8 @@ User.create!(
 
 User.create!(
     uid: 'CBDDACE1',
-    last_name: '【歌い手】辻川',
-    first_name: '弘人',
+    last_name: '辻川',
+    first_name: '弘也',
     klass: 'R4A1',
     number: 171033,
     password: 'password',
@@ -33,7 +33,7 @@ User.create!(
 User.create!(
     uid: 'AB22B9E1',
     last_name: '野崎',
-    first_name: 'ホビーマン',
+    first_name: '穂美満',
     klass: 'R4A1',
     number: 171034,
     password: 'password',
