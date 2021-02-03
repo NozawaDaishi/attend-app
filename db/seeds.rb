@@ -87,4 +87,4 @@ user.attends.create!(date: "2021-01-27 09:00:00")
 user.attends.create!(date: "2021-01-28 09:00:00")
 user.attends.create!(date: "2021-01-29 09:00:00")
 user.attends.create!(date: "2021-02-01 09:00:00")
-user.attends.create!(date: Time.zone.now)
+
